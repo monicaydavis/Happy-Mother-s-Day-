@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mother's Day Flight Ticket</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#f7ecf4;
+  font-family:'Montserrat',sans-serif;
+  padding:24px;
+  color:#3b2b33;
+}
+
+.ticket-wrapper{
+  max-width:900px;
+  margin:0 auto;
+}
+
+.ticket{
+  background:#ffffff;
+  border-radius:24px;
+  box-shadow:0 14px 40px rgba(0,0,0,0.12);
+  overflow:hidden;
+  display:flex;
+  flex-wrap:wrap;
+  border:1px solid #f0cfe0;
+}
+
+/* Left main panel */
+.ticket-main{
+  flex:2;
+  padding:26px 30px 26px 30px;
+  border-right:1px dashed #e3b9cf;
+  position:relative;
+}
+
+.ticket-tag{
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#c27a9a;
+  font-weight:600;
+}
+
+.ticket-title{
+  margin-top:10px;
+  font-family:'Playfair Display',serif;
+  font-size:30px;
+  color:#c02f6f;
+}
+
+.ticket-subtitle{
+  margin-top:4px;
+  font-size:14px;
+  color:#8a6477;
+}
+
+.ribbon{
+  position:absolute;
+  top:22px;
+  right:26px;
+  background:#fbe5f0;
+  color:#c02f6f;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:600;
+}
+
+.amount-box{
+  margin-top:22px;
+  background:#fff6fb;
+  border-radius:18px;
+  border:1px solid #f1cfe3;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.amount-label{
+  font-size:11px;
+  letter-spacing:2px;
+  color:#8a6477;
+  font-weight:600;
+}
+
+.amount-value{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  color:#d23d77;
+}
+
+.amount-note{
+  font-size:12px;
+  color:#8a6477;
+  text-align:right;
+}
+
+.route{
+  margin-top:26px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:13px;
+  color:#7a5a6b;
+}
+
+.route-code{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:#c02f6f;
+}
+
+.route-line{
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,#f0cfe0,transparent);
+}
+
+.route-icon{
+  font-size:18px;
+}
+
+.message{
+  margin-top:22px;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.message .highlight{
+  color:#d23d77;
+  font-weight:600;
+}
+
+.signature{
+  margin-top:18px;
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* Right side panel */
+.ticket-side{
+  flex:1;
+  padding:22px 22px 22px 22px;
+  background:linear-gradient(160deg,#ffe9f4 0%,#f7d6ea 40%,#fef5fb 100%);
+  position:relative;
+}
+
+.side-heading{
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#b15f86;
+  font-weight:600;
+}
+
+.side-title{
+  margin-top:8px;
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:#c02f6f;
+}
+
+.side-section{
+  margin-top:18px;
+  font-size:12px;
+}
+
+.side-label{
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#8a4f6e;
+  margin-bottom:4px;
+}
+
+.side-value{
+  font-size:13px;
+  color:#4b3240;
+}
+
+.side-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:12px;
+}
+
+.side-pill{
+  margin-top:18px;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.8);
+  font-size:11px;
+  color:#7a3f5b;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,0.6);
+}
+
+.side-pill span{
+  font-size:13px;
+}
+
+.perf-line{
+  position:absolute;
+  left:-10px;
+  top:0;
+  bottom:0;
+  width:20px;
+  background:radial-gradient(circle at left,#f7ecf4 6px,transparent 7px) repeat-y;
+  background-size:20px 26px;
+}
+
+/* Mobile */
+@media(max-width:720px){
+  body{
+    padding:16px;
+  }
+  .ticket{
+    flex-direction:column;
+  }
+  .ticket-main{
+    border-right:none;
+    border-bottom:1px dashed #e3b9cf;
+  }
+  .perf-line{
+    display:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="ticket-wrapper">
+  <div class="ticket">
+
+    <!-- Left main panel -->
+    <div class="ticket-main">
+      <div class="ticket-tag">BOARDING PASS • MOTHER'S DAY EDITION</div>
+      <div class="ticket-title">Happy Mother’s Day Mommy 💕</div>
+      <div class="ticket-subtitle">Birthday Trip Credit • From Me, With Love</div>
+
+      <div class="ribbon">SPECIAL GIFT FARE</div>
+
+      <div class="amount-box">
+        <div>
+          <div class="amount-label">GIFT AMOUNT</div>
+          <div class="amount-value">$446.00</div>
+        </div>
+        <div class="amount-note">
+          Applied toward your<br>birthday trip ✈️
+        </div>
+      </div>
+
+      <div class="route">
+        <div class="route-code">MOM</div>
+        <div class="route-line"></div>
+        <div class="route-icon">✈️</div>
+        <div class="route-line"></div>
+        <div class="route-code">MEMORIES</div>
+      </div>
+
+      <div class="message">
+        Instead of flowers this year, I wanted to help create memories.<br><br>
+        I’m gifting you <span class="highlight">$446</span> toward your birthday trip so you can relax,
+        enjoy yourself, and celebrate <span class="highlight>YOU</span> the way you deserve.
+      </div>
+
+      <div class="signature">
+        Love you so much and I can’t wait<br>
+        to make these memories together ✈️🌴🥂
+      </div>
+    </div>
+
+    <!-- Right side panel -->
+    <div class="ticket-side">
+      <div class="perf-line"></div>
+
+      <div class="side-heading">PASSENGER</div>
+      <div class="side-title">The Best Mom Ever</div>
+
+      <div class="side-section">
+        <div class="side-row">
+          <div>
+            <div class="side-label">DEPARTURE</div>
+            <div class="side-value">Whenever You’re Ready</div>
+          </div>
+          <div>
+            <div class="side-label">CLASS</div>
+            <div class="side-value">First Class Only</div>
+          </div>
+        </div>
+
+        <div class="side-row">
+          <div>
+            <div class="side-label">DESTINATION</div>
+            <div class="side-value">Relaxation & Joy</div>
+          </div>
+          <div>
+            <div class="side-label">DURATION</div>
+            <div class="side-value">Memories That Last Forever</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-pill">
+        <span>💕</span>
+        <span>THIS TICKET IS NON‑REFUNDABLE, BUT LOVE IS LIFETIME VALID.</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
